@@ -1,7 +1,8 @@
-variable "rg_name" {
-    default = "rg-dev-love"
- }
+variable "resource_groups" {
+  description = "Map of Azure Resource Groups to create"
 
-variable "rg_location" {
-  default = "eastus"
+  type = map(object({
+    name     = string
+    location = string
+  }))
 }

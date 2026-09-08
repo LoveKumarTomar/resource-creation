@@ -10,13 +10,13 @@
 # }
 
 
-
-
 resource "azurerm_resource_group" "love_res_grp" {
-  name     = var.rg_name
-  location = var.rg_location
-}
 
+  for_each = var.resource_groups
+
+  name     = each.value.name
+  location = each.value.location
+}
 # resource "azurerm_storage_account" "Storage_account" {
 #   name                     = "devstorageaccountlove007"
 #   resource_group_name      = azurerm_resource_group.love_res_grp.name
